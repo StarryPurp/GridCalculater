@@ -10,7 +10,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     EditText Edit1, Edit2;
     TextView results;
-    String num1,num2;
     Button[] butNums=new Button[10];
     Button[] but_ops=new Button[4];
 
