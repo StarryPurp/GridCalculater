@@ -24,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Edit1=(EditText)findViewById(R.id.Edit1) ;
-        Edit2=(EditText)findViewById(R.id.Edit2) ;
+        Edit1=(EditText)findViewById(R.id.edit1) ;
+        Edit2=(EditText)findViewById(R.id.edit2) ;
         Edit1.setOnTouchListener(editHandler);
-        Edit2.setOnTouchListener(editHandler1);
+        Edit2.setOnTouchListener(editHandler);
         results=(TextView)findViewById(R.id.result);
 
         for (int i=0;i<butNums.length;i++){
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         for(int i=0;i<but_ops.length;i++){
-            but_ops[i]=(Button)findViewById(R.id.but_add+i);
+            but_ops[i]=(Button)findViewById(R.id.but_add0+i);
             but_ops[i].setOnClickListener(butOpHandler);
         }
     }
@@ -58,23 +58,25 @@ public class MainActivity extends AppCompatActivity {
     View.OnClickListener butOpHandler=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            int num1 = Integer.parseInt(Edit1.getText().toString());
-            int num2 = Integer.parseInt(Edit2.getText().toString());
-            int result=0;
-            switch(view.getId()){
-                case R.id.but_add:
+            int num1 = Integer.parseInt(Edit1.getText().toString().trim());
+            int num2 = Integer.parseInt(Edit2.getText().toString().trim());
+            String opStr="";
+            double result=0;
+            switch(((Button)view).getText().toString()){
+                case "+":
                     result=num1+num2;
                     break;
-                case R.id.but_min:
+                case "-":
                     result=num1-num2;
                     break;
-                case R.id.but_multi:
+                case "×":
                     result=num1*num2;
                     break;
-                case R.id.but_divid:
-                    result=num1/num2;
+                case "÷":
+                    result=(double)num1/num2;
                     break;
             }
+            results.setText(result+"");
         }
     };
 
@@ -83,25 +85,10 @@ public class MainActivity extends AppCompatActivity {
         public boolean onTouch(View v, MotionEvent event) {
             numStr=" ";
             switch (v.getId()){
-                case R.id.Edit1:
+                case R.id.edit1:
                     selectEdit=SELEECT_EDIT1;
                     break;
-                case R.id.Edit2:
-                    selectEdit=SELEECT_EDIT2;
-                    break;
-            }
-            return false;
-        }
-    };
-    View.OnTouchListener editHandler1=new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            numStr=" ";
-            switch (v.getId()){
-                case R.id.Edit1:
-                    selectEdit=SELEECT_EDIT1;
-                    break;
-                case R.id.Edit2:
+                case R.id.edit2:
                     selectEdit=SELEECT_EDIT2;
                     break;
             }

@@ -8,12 +8,12 @@
     android:orientation="vertical"
     android:layout_gravity="center">
 <EditText
-    android:id="@+id/Edit1"
+    android:id="@+id/edit1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     />
     <EditText
-        android:id="@+id/Edit2"
+        android:id="@+id/edit2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
@@ -110,25 +110,25 @@
     </GridLayout>
 
     <Button
-        android:id="@+id/but_add"
+        android:id="@+id/but_add0"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="+"
     />
     <Button
-        android:id="@+id/but_min"
+        android:id="@+id/but_add1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="-"
         />
     <Button
-        android:id="@+id/but_multi"
+        android:id="@+id/but_add2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="×"
         />
     <Button
-        android:id="@+id/but_divid"
+        android:id="@+id/but_add3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="÷"
